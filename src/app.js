@@ -94,16 +94,6 @@ app.get('/restaurants', async (req, res) => {
   }
 });
 
-app.post('/restaurants', async (req, res) => {
-  try {
-    const newRestaurant = await Restaurant.create(req.body);
-    res.json(newRestaurant);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: error.message });
-  }
-});
-
 // Obtener un restaurante por ID
 app.get('/restaurants/:id', async (req, res) => {
   const { id } = req.params;
